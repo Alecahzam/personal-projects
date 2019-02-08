@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "express": "^4.16.4",
     "express-session": "^1.15.6",
     "react": "^16.8.1",
     "react-audio-player": "^0.11.0",
@@ -26,5 +27,5 @@
     "not ie <= 11",
     "not op_mini all"
   ],
-  "proxy":"http://localhost:3003"
+  "proxy": "http://localhost:3003"
 }
