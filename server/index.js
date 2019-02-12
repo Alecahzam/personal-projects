@@ -3,8 +3,12 @@ const express = require("express");
 const { json } = require("body-parser");
 const massive = require("massive");
 const session = require("express-session");
-const controller = require("./controllers/controller");
-// const { login, register, me } = require("./controllers/authController");
+const {getUsers, getSongs } = require("./controllers/dataController");
+const { login, register, me } = require("./controllers/authController");
+const {upload} = require("./controllers/uploadController")
+const cors = require('cors')
+const fileUpload = require('express-fileupload')
+const path = require('path')
 
 var http = require('http').Server(express());
 var io = require('socket.io')(http);
@@ -25,8 +29,11 @@ http.listen(3002, function(){
 const port = process.env.SERVER_PORT || 3003;
 const app = express();
 
+app.use(cors)
+// app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 app.use(json());
-
+app.use(fileUpload())
+app.use('/public', express.static(__dirname + '/public'))
 app.use(
   session({
     secret: process.env.SECRET,
@@ -42,11 +49,13 @@ massive(process.env.CONNECTION_STRING).then(db => {
   app.set("db", db);
   console.log("Database connected");
 });
-app.get("/api/songs", controller.getSongs)
-app.get("/api/users", controller.getUsers);
-// app.post("/api/login", login);
-// app.post("/api/register", register);
-// app.get("/api/me", me);
+app.get("/api/songs", getSongs)
+app.get("/api/users", getUsers);
+app.post("/api/login", login);
+app.post("/api/register", register);
+app.get("/api/me", me);
+app.post("/api/upload", upload)
+
 
 app.listen(port, () => {
   console.log(`Server listening on port ${port}`);

@@ -1,0 +1,37 @@
+.imgURL {
+  height: 30vh;
+  width: 24vw;
+}
+
+.navBar {
+  background-color: purple;
+  float: left;
+  text-align: center;
+padding-top: 5px;
+padding-bottom: 4px;
+  text-decoration: none;
+  width: 100vw;
+  list-style: none;
+}
+
+.navList {
+  display: flex;
+  justify-content: space-between;
+  font-size: 140%;
+}
+
+.Links {
+  color: rgb(0, 234, 255);
+
+  text-decoration: none;
+}
+
+.logo {
+  height: 30px;
+  width: 40px;
+  margin-left: 6vw;
+}
+
+.Links:hover {
+  color: rgb(151, 221, 221);
+}
