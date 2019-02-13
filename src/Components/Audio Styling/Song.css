@@ -2,10 +2,18 @@
   background-color: purple !important;
 }
 
-.react-h5-audio-player .toggle-play-wrapper .toggle-play-button {
+.react-h5-audio-player {
+  width: 40%;
+  display: flex;
+  float: center;
+  justify-content: center;
+  padding: 4px;
+}
+
+.toggle-play-wrapper .toggle-play-button {
   background-color: purple;
 }
-.react-h5-audio-player .toggle-play-wrapper .pause-icon {
+.toggle-play-wrapper .pause-icon {
   box-sizing: content-box;
   display: block;
   width: 14px;
@@ -16,6 +24,11 @@
   left: 9px;
   background-color: white;
   box-shadow: purple 7px 0px 0px 0px inset !important;
+}
+
+.audioPlay {
+  display: flex;
+  justify-content: center;
 }
 
 /*# sourceMappingURL=Song.css.map */

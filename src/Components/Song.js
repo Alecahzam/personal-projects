@@ -12,11 +12,12 @@ class Audio extends Component {
   }
   render() {
     return (
-      <div>
+      <div className= "audioPlay">
       <AudioPlayer
         autoPlay
         src={this.props.file}
         onPlay={e => console.log("onPlay")}
+        
       /> 
        </div>
     );

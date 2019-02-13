@@ -22,5 +22,16 @@ module.exports = {
         });
         console.log(error);
       });
+  },
+  addSong: (req, res) => {
+    const dbInstance = req.app.get("db");
+    const { title, genre, arist, url, image } = req.body;
+    dbInstance
+      .addSong([title, genre, arist, url, image])
+      .then(() => res.status(200))
+      .catch(error => {
+        res.status(500).send({ errorMessage: "Error adding song." });
+        console.log(error);
+      });
   }
 };

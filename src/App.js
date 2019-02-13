@@ -1,12 +1,14 @@
 import React, { Component } from 'react';
 import './App.css'
-import Home from "./Components/Home"
+import {Link} from "react-router-dom"
+
+import routes from "./routes"
 
 class App extends Component {
   render() {
     return (
       <div className="App"> 
-      <Home/>
+      {routes}
 {/* <html>
 <script src="/socket.io/socket.io.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.4/socket.io.js"></script>
@@ -30,6 +32,7 @@ class App extends Component {
   });
 </script> */}
      </div>
+   
     );
   }
 }

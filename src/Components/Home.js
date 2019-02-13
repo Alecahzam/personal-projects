@@ -2,9 +2,10 @@ import React, { Component } from "react";
 import axios from "axios";
 import "./Home.css";
 import { Link } from "react-router-dom";
-import  Song from "./Song"
-import Upload from "./Upload"
-// import routes from "../routes";
+import Song from "./Song";
+import Upload from "./Upload";
+import routes from "../routes";
+import Form from "./Form";
 
 class Home extends Component {
   constructor() {
@@ -32,45 +33,68 @@ class Home extends Component {
 
   render() {
     const songDisplay = this.state.songList.map((e, i) => {
-      //   var imageUrl = e.image
       return (
-      
-        <div key={e.songid} className="songList">
- 
-            <img src={`${e.image}`} alt="songImages" className="imgURL" />    
-           <Song
-          file={e.url}
-          />
-           <div>Title: {e.name}</div>
-            <div>Artist: {e.artist} Genre: {e.genre}</div> 
-            <div>
-              <br/>
+        <div key={i} className="songList">
+          <div>
+            <img
+              src={`${e.image}`}
+              alt="songImages"
+              className="imgURL"
+              onClick={e => this.songDetails}
+            />
+            <div className="sideInfo">
+              <div className="artist">Artist: {e.artist}</div>
+              <div>Genre: {e.genre}</div>
+              <button className="favButton" onClick = {(e) => this.addToFavorites}>fav</button>{" "}
             </div>
+          </div>
+          {e.title}
+          <Song file={e.url} />
+          <div>
+            <br />
+          </div>
         </div>
       );
     });
     return (
       <div>
-          <div> 
-        <nav className="navBar">
-        
-          <ul>
-            <li className= "navList">
-            <img className= "logo" src= "https://img2.androidappsapk.co/300/7/8/7/com.airg.launchers.music.png" alt= "logo"/>
-              <Link className="Links" to="/"> Home</Link>
-              <Link className="Links" to="/userpage"> Account </Link> 
-              <Link className= "Links" to="/discover"> Discover </Link>
-              <input></input>
-              <Link className= "Links" to="/mymusic"> My Music </Link>
-              <Link className= "Links" to="/aboutus"> About Us</Link>
-            </li>
-          </ul>
-        </nav> <Upload/>
+        <div className = "background">
+          <nav className="navBar">
+            <ul>
+              <li className="navList">
+                <img
+                  className="logo"
+                  src="https://img2.androidappsapk.co/300/7/8/7/com.airg.launchers.music.png"
+                  alt="logo"
+                />
+                <Link className="Links" to="home">
+                  Home
+                </Link>
+                <Link className="Links" to="userpage">
+                  Account
+                </Link>
+                <Link className="Links" to="discover">
+                  Discover
+                </Link>
+                <style> 
+                <input /> </style>
+                <Link className="Links" to="mymusic">
+                  My Music
+                </Link>
+                <Link className="Links" to="add">
+                  Upload
+                </Link>
+                <Link className="Links" to="aboutus">
+                  About Us
+                </Link>
+              </li>
+            </ul>
+          </nav>
+          {/* <Upload/> */}
         </div>
-        Home Page
-        <div>
-        {songDisplay}
-        </div>
+        Home
+        <div className="whole">{songDisplay}</div>
+        <Form getSongs={this.getSongs} />
       </div>
     );
   }

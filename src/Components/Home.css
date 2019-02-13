@@ -1,13 +1,9 @@
-.imgURL {
-  height: 30vh;
-  width: 24vw;
-}
+
 
 .navBar {
   background-color: purple;
   float: left;
-  text-align: center;
-padding-top: 5px;
+  padding-top: 6px;
 padding-bottom: 4px;
   text-decoration: none;
   width: 100vw;
@@ -16,22 +12,52 @@ padding-bottom: 4px;
 
 .navList {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   font-size: 140%;
 }
 
 .Links {
   color: rgb(0, 234, 255);
-
   text-decoration: none;
 }
 
 .logo {
   height: 30px;
   width: 40px;
-  margin-left: 6vw;
+  margin-left: 4vw;
 }
 
 .Links:hover {
   color: rgb(151, 221, 221);
+}
+
+.songList {
+  background: rgb(255, 255, 255)
+}
+
+.sideInfo {
+  /* display: flex; */
+  flex-direction: column;
+  justify-content: space-between;
+  float: right;
+  margin-right: 26vw;
+  padding: 20px
+} 
+.imgURL {
+  height: 30vh;
+  width: 24vw;
+   align-content: center;
+/* display: flex; */
+  margin-left: 34vw
+}
+.artist {
+  padding-bottom: 30px
+}
+
+.favButton {
+  margin-top: 30px
+}
+
+.whole {
+  float:left
 }

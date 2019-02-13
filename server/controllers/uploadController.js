@@ -1,13 +1,12 @@
 module.exports = {
-    upload: (req,res,next) => {
+    upload: (req,res) => {
         let uploadFile = req.files.file
-        const fileName = req.files.file.name
-        uploadFile.mv(`${__dirname}/public/files/${fileName}`,
+        uploadFile.mv(`${__dirname}/public/${req.body.filename}.png`,
         function (error){
             if (error) {
                 return res.status(500).send(error)
             }
-            res.json({file: `public/${req.files.file.name}`,
+            res.json({file: `public/${req.body.filename}`,
         })
         },
         )}
