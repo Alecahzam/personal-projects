@@ -5,7 +5,7 @@ module.exports = {
     const dbInstance = req.app.get("db");
     console.log(req.body);
 
-    dbInstance.findUser({ username: req.body.username }).then(async users => {
+    dbInstance.findUser(req.body.username ).then(async users => {
       if (!users.length) {
         res.status(401).json({ error: "Unknown username." });
       } else {
@@ -16,11 +16,11 @@ module.exports = {
         if (matches) {
           console.log("User matches");
           req.session.user = { username: users[0].username };
-          res.json({ username: users[0].username });
+          res.json( req.session.user);
         } else {
           res.status(401).json({ error: "Password not recognized." });
         }
-      }
+      } console.log("test")
     });
   },
   register: async (req, res) => {

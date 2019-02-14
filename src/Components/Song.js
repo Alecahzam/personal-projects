@@ -17,7 +17,6 @@ class Audio extends Component {
         autoPlay
         src={this.props.file}
         onPlay={e => console.log("onPlay")}
-        
       /> 
        </div>
     );

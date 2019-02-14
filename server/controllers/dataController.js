@@ -33,5 +33,9 @@ module.exports = {
         res.status(500).send({ errorMessage: "Error adding song." });
         console.log(error);
       });
+  },
+  addToFavorites: (req, res) => {
+    const dbInstance = req.app.get('db');
+    
   }
 };

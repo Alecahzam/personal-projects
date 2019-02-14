@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './App.css'
-import {Link} from "react-router-dom"
+// import {Link} from "react-router-dom"
 
 import routes from "./routes"
 
@@ -9,6 +9,7 @@ class App extends Component {
     return (
       <div className="App"> 
       {routes}
+      
 {/* <html>
 <script src="/socket.io/socket.io.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.4/socket.io.js"></script>

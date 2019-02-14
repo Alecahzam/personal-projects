@@ -3,9 +3,10 @@ import axios from "axios";
 import "./Home.css";
 import { Link } from "react-router-dom";
 import Song from "./Song";
-import Upload from "./Upload";
-import routes from "../routes";
+// import Upload from "./Upload";
+// import routes from "../routes";
 import Form from "./Form";
+import NavBar from "./NavBar"
 
 class Home extends Component {
   constructor() {
@@ -20,15 +21,20 @@ class Home extends Component {
     this.getSongs();
   }
 
-  // componentDidUpdate() {
-  //   this.getSongs();
-  // }
+
+  componentDidUpdate() {
+    this.getSongs();
+  }
 
   getSongs() {
     axios.get("/api/songs").then(res => {
       console.log(res.data);
       this.setState({ songList: res.data });
     });
+  }
+
+  addToFavorites(){
+    axios.post("/api/favorites")
   }
 
   render() {
@@ -59,42 +65,15 @@ class Home extends Component {
     return (
       <div>
         <div className = "background">
-          <nav className="navBar">
-            <ul>
-              <li className="navList">
-                <img
-                  className="logo"
-                  src="https://img2.androidappsapk.co/300/7/8/7/com.airg.launchers.music.png"
-                  alt="logo"
-                />
-                <Link className="Links" to="home">
-                  Home
-                </Link>
-                <Link className="Links" to="userpage">
-                  Account
-                </Link>
-                <Link className="Links" to="discover">
-                  Discover
-                </Link>
-                <style> 
-                <input /> </style>
-                <Link className="Links" to="mymusic">
-                  My Music
-                </Link>
-                <Link className="Links" to="add">
-                  Upload
-                </Link>
-                <Link className="Links" to="aboutus">
-                  About Us
-                </Link>
-              </li>
-            </ul>
-          </nav>
+          <NavBar/>
           {/* <Upload/> */}
         </div>
         Home
         <div className="whole">{songDisplay}</div>
-        <Form getSongs={this.getSongs} />
+        {/* <Form getSongs={this.getSongs} /> */}
+        <footer>
+          beep beep
+        </footer>
       </div>
     );
   }
