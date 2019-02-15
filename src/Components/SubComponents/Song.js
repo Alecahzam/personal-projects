@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import AudioPlayer from "react-h5-audio-player";
-import "./Audio Styling/Song.css"
+import "../Audio Styling/Song.css"
 
 
 class Audio extends Component {
@@ -14,9 +14,8 @@ class Audio extends Component {
     return (
       <div className= "audioPlay">
       <AudioPlayer
-        autoPlay
-        src={this.props.file}
-        onPlay={e => console.log("onPlay")}
+        autoPlay= {false}
+        src={this.props.file}        
       /> 
        </div>
     );

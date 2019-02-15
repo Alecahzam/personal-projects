@@ -9,7 +9,7 @@ const LOGIN = "LOGIN";
 const GET_USER= "GET_USER"
 
 export const login = (username, password) => {
-  return { type: LOGIN, payload: axios.post("/api/login", {username: username, password: password}) };
+  return { type: LOGIN, payload: axios.post("/api/login", {username: username, password: password }) };
 };
 
 export const getUser = () => {

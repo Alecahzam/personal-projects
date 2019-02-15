@@ -4,8 +4,7 @@ import Home from "./Components/Home"
 import Login from "./Components/Login"
 import Form from "./Components/Form"
 import UserPage from "./Components/UserPage"
-// import Favorites from "./Components/Favorites"
-// import Playlists from "./Components/Playlists"
+import MyMusic from "./Components/myMusic"
 
 export default (
     <Switch>
@@ -13,7 +12,6 @@ export default (
         <Route path= "/login" component={Login}/>
         <Route path= "/add" component= {Form}/>
          <Route path= "/userpage" component= {UserPage}/>
-        {/* <Route path= "/favorites" component={Favorites}/> */}
-        {/* <Route path= "/playlists" component= {Playlists}/>  */}
+        <Route path= "/mymusic" component={MyMusic}/>
     </Switch>
 )

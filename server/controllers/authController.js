@@ -5,7 +5,7 @@ module.exports = {
     const dbInstance = req.app.get("db");
     console.log(req.body);
 
-    dbInstance.findUser(req.body.username ).then(async users => {
+    dbInstance.findUser(req.body.username).then(async users => {
       if (!users.length) {
         res.status(401).json({ error: "Unknown username." });
       } else {
@@ -45,5 +45,5 @@ module.exports = {
     } else {
       res.status(401).json({ error: "Please log in first." });
     }
-  }
+  },
 };

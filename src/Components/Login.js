@@ -24,8 +24,8 @@ class Login extends Component {
   submit = e => {
     e.preventDefault();
     this.props.login(this.state.username, this.state.password)
-    // .then(
-    //   this.setState({username: "", password: ""}))
+    .then(
+      this.setState({username: "", password: ""}));
   }
 
   updateInput = e => {

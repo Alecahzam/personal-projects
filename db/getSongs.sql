@@ -1,1 +1,1 @@
-SELECT * FROM songs ORDER BY songid ASC
+SELECT * FROM songs ORDER BY songid DESC

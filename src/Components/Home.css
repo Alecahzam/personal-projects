@@ -32,7 +32,7 @@ padding-bottom: 4px;
 }
 
 .songList {
-  background: rgb(255, 255, 255)
+  background: rgb(255, 255, 255);
 }
 
 .sideInfo {
@@ -44,11 +44,12 @@ padding-bottom: 4px;
   padding: 20px
 } 
 .imgURL {
-  height: 30vh;
-  width: 24vw;
+  height: 28vh;
+  width: 20vw;
    align-content: center;
 /* display: flex; */
   margin-left: 34vw;
+  padding-top: 10px;
 }
 .artist {
   padding-bottom: 30px

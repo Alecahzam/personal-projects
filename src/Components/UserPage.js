@@ -2,7 +2,7 @@ import React, {Component} from "react"
  import {connect} from "react-redux"
  import {getUser} from "./ducks/reducer"
  import { Link } from "react-router-dom"
- import NavBar from "./NavBar"
+ import NavBar from "./SubComponents/NavBar"
 class UserPage extends Component {
 
 componentDidMount(){

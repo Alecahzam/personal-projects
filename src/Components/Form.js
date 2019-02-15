@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios";
-import NavBar from "./NavBar"
+import NavBar from "./SubComponents/NavBar"
 
 export default class Form extends Component {
   constructor() {
@@ -21,15 +21,16 @@ export default class Form extends Component {
   };
 
   addSong() {
-    
     axios
       .post("/api/songs", {
         title: this.state.titleInput,
         genre: this.state.genreInput,
-        arist: this.state.artistInput,
+        artist: this.state.artistInput,
         url: this.state.urlInput,
         image: this.state.imageInput
-      })
+      }).then(
+        this.setState({ titleInput: "", genreInput: "", artistInput: "", urlInput: "", imageInput: ""})
+      )
   }
 
   render() {
@@ -55,7 +56,7 @@ export default class Form extends Component {
         <input
           placeholder="Artist"
           name="artistInput"
-          value={this.state.aristInput}
+          value={this.state.artistInput}
           onChange={this.updateInputHandler}
         />
         <div />
