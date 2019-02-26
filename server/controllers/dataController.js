@@ -55,5 +55,13 @@ module.exports = {
       }) 
       console.log(error)
     })
+  },
+  removeFavorite: (req, res) => {
+    const dbInstance = req.app.get('db')
+    dbInstance.removeFavorite([req.params.username, req.body.songid]).then(response => {
+      res.status(200).send(response)
+    }).catch(error => {
+      res.status(500).send({ errorMessage: "Error removing favorite."})
+    })
   }
 };

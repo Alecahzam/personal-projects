@@ -1,29 +1,26 @@
 import React, { Component } from "react";
 import axios from "axios";
 import "./Home.css";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 import Song from "./SubComponents/Song";
 // import Upload from "./Upload";
-import NavBar from "./SubComponents/NavBar"
+import NavBar from "./SubComponents/NavBar";
 import { connect } from "react-redux";
 import { getUser } from "./ducks/reducer";
-
-
 
 class Home extends Component {
   constructor() {
     super();
     this.state = {
       songList: [],
-    };
-    this.getSongs = this.getSongs.bind(this);
+
   }
+}
 
   componentDidMount() {
     this.getSongs();
     this.props.getUser();
   }
-
 
   // componentDidUpdate() {
   //   this.getSongs();
@@ -36,29 +33,37 @@ class Home extends Component {
     });
   }
 
-  addToFavorites(songid){
-    axios.post("/api/favorites", {username: this.props.user.username, songid: songid}).then(response => {
-      console.log(response)
-    }
-    )
+  addToFavorites(songid) {
+    axios
+      .post("/api/favorites", {
+        username: this.props.user.username,
+        songid: songid
+      })
+      .then(response => {
+        console.log(response);
+      });
   }
 
   render() {
-    console.log(this.props)
+    console.log(this.props);
     const songDisplay = this.state.songList.map((e, i) => {
-      return (
+      return this.props.user.username ? (
         <div key={i} className="songList">
           <div>
             <img
               src={`${e.image}`}
               alt="songImages"
               className="imgURL"
-              onClick={e => this.songDetails}
             />
             <div className="sideInfo">
               <div className="artist">Artist: {e.artist}</div>
               <div>Genre: {e.genre}</div>
-              <button className="favButton" onClick = {() => this.addToFavorites(e.songid)}>fav</button>{" "}
+              <button
+                className="favButton"
+                onClick={() => this.addToFavorites(e.songid)}
+              >
+                fav
+              </button>
             </div>
           </div>
           {e.title}
@@ -67,25 +72,41 @@ class Home extends Component {
             <br />
           </div>
         </div>
-      );
+      ) : (
+        <div key={i} className="songList">
+          <div>
+            <img
+              src={`${e.image}`}
+              alt="songImages"
+              className="imgURL"
+            />
+            <div className="sideInfo">
+              <div className="artist">Artist: {e.artist}</div>
+              <div>Genre: {e.genre}</div>
+            </div>
+          </div>
+          {e.title}
+          <Song file={e.url} />
+          <div>
+            <br />
+          </div>
+        </div>
+      )
     });
     return (
       <div>
-        <div className = "background">
-          <NavBar/>
+        <div className="background">
+          <NavBar />
           {/* <Upload/> */}
         </div>
-       <div>Home</div> 
+        <div>Home</div>
         <div className="whole">{songDisplay}</div>
         {/* <Form getSongs={this.getSongs} /> */}
-        <footer>
-        
-        </footer>
+        <footer />
       </div>
     );
   }
 }
-
 
 const mapStateToProps = state => state;
 

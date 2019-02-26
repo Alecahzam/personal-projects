@@ -21,16 +21,17 @@ class MyMusic extends Component {
   }
 
   getFavorites() {
-    axios
-      .get(`/api/favorites/${this.props.user.username}`)
-      .then(res => {
-        console.log(res);
-        this.setState({ favlist: res.data });
-      });
+    axios.get(`/api/favorites/${this.props.user.username}`).then(res => {
+      console.log(res);
+      this.setState({ favlist: res.data });
+    });
   }
 
-  removeFavorite() {
-    axios.delete("/api/favorites");
+  removeFavorite(songid) {
+    axios.delete(`/api/favorites/${this.props.user.username}`, {data:  {songid: songid}}).then(res => {
+      console.log(res.data);
+    });
+    this.getFavorites()
   }
 
   render() {
@@ -61,9 +62,8 @@ class MyMusic extends Component {
     return (
       <div>
         <NavBar />
-        <div>
-        {displayFavorites}
-        </div>
+        <div className="favorites">Favorites</div>
+        <div>{displayFavorites}</div>
       </div>
     );
   }

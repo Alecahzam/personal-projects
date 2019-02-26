@@ -1,2 +1,2 @@
 DELETE FROM favorites
-WHERE username = $1 AND songid = $2
+WHERE username= $1 AND songid = $2

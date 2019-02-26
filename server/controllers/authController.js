@@ -26,7 +26,6 @@ module.exports = {
   register: async (req, res) => {
     const db = req.app.get("db");
     const hash = await bcrypt.hash(req.body.password, 10);
-
     try {
       const response = await db.addUser({
         username: req.body.username,

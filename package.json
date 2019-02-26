@@ -5,6 +5,7 @@
   "dependencies": {
     "axios": "^0.18.0",
     "bcryptjs": "^2.4.3",
+    "chart.js": "^2.7.3",
     "cookie-parser": "^1.4.3",
     "cors": "^2.8.5",
     "express": "^4.16.4",
@@ -13,8 +14,10 @@
     "node-sass": "^4.11.0",
     "react": "^16.8.1",
     "react-audio-player": "^0.11.0",
+    "react-chartjs-2": "^2.7.4",
     "react-dom": "^16.8.1",
     "react-h5-audio-player": "^1.1.0",
+    "react-infinite-scroll-component": "^4.5.0",
     "react-redux": "^6.0.0",
     "react-router-dom": "^4.3.1",
     "react-scripts": "2.1.3",

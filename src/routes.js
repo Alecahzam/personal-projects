@@ -5,6 +5,7 @@ import Login from "./Components/Login"
 import Form from "./Components/Form"
 import UserPage from "./Components/UserPage"
 import MyMusic from "./Components/myMusic"
+import AboutUs from "./Components/AboutUs"
 
 export default (
     <Switch>
@@ -13,5 +14,6 @@ export default (
         <Route path= "/add" component= {Form}/>
          <Route path= "/userpage" component= {UserPage}/>
         <Route path= "/mymusic" component={MyMusic}/>
+        <Route path= "/aboutus" component={AboutUs}/>
     </Switch>
 )
