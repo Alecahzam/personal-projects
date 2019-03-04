@@ -1,0 +1,29 @@
+.messages {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
+  .messages li {
+    padding: 5px 10px;
+  }
+  .messages li:nth-child(odd) {
+    background: #eee;
+  }
+
+  .messages {
+      height: 20vh;
+      width: 10vw
+  }
+
+  .card {
+      height: 50vh;
+      width:40vw
+  }
+  .container {
+      height: 50vh;
+      width:40vw
+  }
+  .positioned {
+      height: 50vh;
+      width:40vw
+  }

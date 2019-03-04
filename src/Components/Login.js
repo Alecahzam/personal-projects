@@ -3,6 +3,7 @@ import axios from "axios";
 import { connect } from "react-redux";
 import { login } from "./ducks/reducer";
 import {Link} from "react-router-dom"
+import "./Login.css"
 
 class Login extends Component {
   constructor() {
@@ -36,7 +37,7 @@ class Login extends Component {
     return (
     
       <div>  
-        <div>
+        <div className= "login">
           <input type="text" name="username" onChange={this.updateInput} />
           <input type="password" name="password" onChange={this.updateInput} />
          <button onClick={this.submit}> Login</button> <Link  to="/userpage" >Next...</Link> 

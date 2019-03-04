@@ -6,13 +6,15 @@ import Form from "./Components/Form"
 import UserPage from "./Components/UserPage"
 import MyMusic from "./Components/myMusic"
 import AboutUs from "./Components/AboutUs"
+import OpeningPage from "./Components/OpeningPage"
 
 export default (
     <Switch>
+        <Route exact path="/" component= {OpeningPage}/>
         <Route exact path="/home" component={Home}/>
         <Route path= "/login" component={Login}/>
         <Route path= "/add" component= {Form}/>
-         <Route path= "/userpage" component= {UserPage}/>
+        <Route path= "/userpage" component= {UserPage}/>
         <Route path= "/mymusic" component={MyMusic}/>
         <Route path= "/aboutus" component={AboutUs}/>
     </Switch>

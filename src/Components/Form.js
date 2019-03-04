@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
 import NavBar from "./SubComponents/NavBar"
+import "./Form.css"
 
 export default class Form extends Component {
   constructor() {

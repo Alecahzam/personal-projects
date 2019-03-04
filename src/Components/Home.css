@@ -51,6 +51,7 @@ padding-bottom: 4px;
   margin-left: 34vw;
   padding-top: 10px;
 }
+
 .artist {
   padding-bottom: 30px
 }
@@ -62,3 +63,12 @@ padding-bottom: 4px;
 .whole {
   float:left
 }
+
+.positioned {
+  position: fixed;
+  z-index: 10;
+  top:60vh;
+  left: 85vw
+}
+
+

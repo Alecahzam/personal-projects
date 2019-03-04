@@ -22,7 +22,7 @@ export default class Sharto extends Component {
     //       });
     this.setState({
       Data: {
-        labels: ["fucking", "end my", "miserable fucking existence", "please", "i beg of you"],
+        labels: ["1", "2", "3", "4", "5"],
         datasets: [
           {
             label: "ease my suffering",
@@ -65,7 +65,7 @@ export default class Sharto extends Component {
       <div>
         <Pie data={this.state.Data} options={{ maintainAspectRatio: false }}
         height={230}
-        width />
+        />
       </div>
     );
   }

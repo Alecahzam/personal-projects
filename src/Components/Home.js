@@ -13,7 +13,6 @@ class Home extends Component {
     super();
     this.state = {
       songList: [],
-
   }
 }
 
@@ -54,6 +53,7 @@ class Home extends Component {
               src={`${e.image}`}
               alt="songImages"
               className="imgURL"
+              
             />
             <div className="sideInfo">
               <div className="artist">Artist: {e.artist}</div>
@@ -69,7 +69,7 @@ class Home extends Component {
           {e.title}
           <Song file={e.url} />
           <div>
-            <br />
+            <br/>
           </div>
         </div>
       ) : (
@@ -97,9 +97,12 @@ class Home extends Component {
       <div>
         <div className="background">
           <NavBar />
+          
           {/* <Upload/> */}
         </div>
         <div>Home</div>
+        <div className= "positioned">
+        </div>
         <div className="whole">{songDisplay}</div>
         {/* <Form getSongs={this.getSongs} /> */}
         <footer />

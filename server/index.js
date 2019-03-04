@@ -8,40 +8,57 @@ const { login, register, me } = require("./controllers/authController");
 const cors = require("cors");
 const port = process.env.SERVER_PORT || 3003;
 const app = express();
-var http = require("http").Server(app);
-var io = require("socket.io")(http);
+const path = require('path');
 
-app.get("/", function(req, res) {
-  res.sendFile(__dirname + "/index.html");
+app.get('*', (req, res)=>{
+    res.sendFile(path.join(__dirname, '../build/index.html'));
 });
 
-var users = [];
-io.on('connection', function(socket) {
-   console.log('A user connected');
-   socket.on('setUsername', function(data) {
-      if(users.indexOf(data) > -1) {
-         users.push(data);
-         socket.emit('userSet', {username: data});
-      } else {
-         socket.emit('userExists', data + ' username is taken! Try some other username.');
-      }
-   })
-});
+app.use( express.static( `${__dirname}/../build` ) );
 
-io.on("connection", function(socket) {
-  console.log("User connected");
-  socket.on("chat message", function(msg) {
-    console.log("message: " + msg);
-    io.emit("chat message", msg);
-  });
-  socket.on("disconnect", function() {
-    console.log("User disconnected");
-  });
-});
+var socket = require('socket.io')
+var io = socket(app.listen(3002, () => {
+  console.log(`Server listening on port 3002`);
+}))
 
-http.listen(3002, function() {
-  console.log("Chat server listening on port 3002");
-});
+io.on('connection', (socket) => {
+  console.log(socket.id)
+  socket.on('SEND_MESSAGE', function(data){
+    io.emit('RECEIVE_MESSAGE', data)
+  })
+})
+
+// app.get("/", function(req, res) {
+//   res.sendFile(__dirname + "/index.html");
+// });
+
+// var users = [];
+// io.on('connection', function(socket) {
+//    console.log('A user connected');
+//    socket.on('setUsername', function(data) {
+//       if(users.indexOf(data) > -1) {
+//          users.push(data);
+//          socket.emit('userSet', {username: data});
+//       } else {
+//          socket.emit('userExists', data + ' username is taken! Try some other username.');
+//       }
+//    })
+// });
+
+// io.on("connection", function(socket) {
+//   console.log("User connected");
+//   socket.on("chat message", function(msg) {
+//     console.log("message: " + msg);
+//     io.emit("chat message", msg);
+//   });
+//   socket.on("disconnect", function() {
+//     console.log("User disconnected");
+//   });
+// });
+
+// http.listen(3002, function() {
+//   console.log("Chat server listening on port 3002");
+// });
 
 app.use(cors());
 app.use(json());

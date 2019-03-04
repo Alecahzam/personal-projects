@@ -4,6 +4,7 @@ import Song from "./SubComponents/Song";
 import axios from "axios";
 import { connect } from "react-redux";
 import { getUser } from "./ducks/reducer";
+import { Link } from "react-router-dom"
 
 class MyMusic extends Component {
   constructor() {
@@ -57,15 +58,22 @@ class MyMusic extends Component {
             <br />
           </div>
         </div>
-      );
+      ) 
     });
-    return (
+    return this.props.user.username ? (
       <div>
         <NavBar />
         <div className="favorites">Favorites</div>
         <div>{displayFavorites}</div>
       </div>
-    );
+    ) : (
+      <div>
+      <NavBar/>
+      <div>
+        <Link to="/login"> Please log in. </Link>
+      </div>
+    </div>
+    )
   }
 }
 const mapStateToProps = state => state;

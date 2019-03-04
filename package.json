@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@material-ui/core": "^3.9.2",
     "axios": "^0.18.0",
     "bcryptjs": "^2.4.3",
     "chart.js": "^2.7.3",
@@ -11,6 +12,7 @@
     "express": "^4.16.4",
     "express-fileupload": "^1.1.1-alpha.2",
     "express-session": "^1.15.6",
+    "material-ui": "^0.20.2",
     "node-sass": "^4.11.0",
     "react": "^16.8.1",
     "react-audio-player": "^0.11.0",
@@ -24,7 +26,8 @@
     "react-soundplayer": "^1.0.4",
     "redux": "^4.0.1",
     "redux-promise-middleware": "^6.1.0",
-    "socket.io": "^2.2.0"
+    "socket.io": "^2.2.0",
+    "socket.io-client": "^2.2.0"
   },
   "scripts": {
     "start": "react-scripts start",
