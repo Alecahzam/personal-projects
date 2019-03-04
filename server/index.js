@@ -10,15 +10,13 @@ const port = process.env.SERVER_PORT || 3003;
 const app = express();
 const path = require('path');
 
-app.get('*', (req, res)=>{
-    res.sendFile(path.join(__dirname, '../build/index.html'));
-});
+
 
 app.use( express.static( `${__dirname}/../build` ) );
 
 var socket = require('socket.io')
 var io = socket(app.listen(3002, () => {
-  console.log(`Server listening on port 3002`);
+  console.log(`Chat listening on port 3002`);
 }))
 
 io.on('connection', (socket) => {
@@ -89,6 +87,9 @@ app.delete("/api/users");
 app.post("/api/favorites", addToFavorites);
 app.get("/api/favorites/:username", getFavorites);
 app.delete("/api/favorites/:username", removeFavorite);
+app.get('*', (req, res)=>{
+    res.sendFile(path.join(__dirname, '../build/index.html'));
+});
 
 app.listen(port, () => {
   console.log(`Server listening on port ${port}`);
