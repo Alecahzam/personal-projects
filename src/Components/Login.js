@@ -1,9 +1,10 @@
 import React, { Component } from "react";
 import axios from "axios";
 import { connect } from "react-redux";
-import { login } from "./ducks/reducer";
-import {Link} from "react-router-dom"
-import "./Login.css"
+import { login, getUser } from "./ducks/reducer";
+import { Link } from "react-router-dom";
+import "./CSS/Login.css";
+import NavBar from "./SubComponents/NavBar";
 
 class Login extends Component {
   constructor() {
@@ -15,6 +16,10 @@ class Login extends Component {
     };
   }
 
+  componentDidMount() {
+    this.props.getUser();
+  }
+
   register = () => {
     const { username, password } = this.state;
     axios.post("/api/register", { username, password }).then(res => {
@@ -24,10 +29,10 @@ class Login extends Component {
 
   submit = e => {
     e.preventDefault();
-    this.props.login(this.state.username, this.state.password)
-    .then(
-      this.setState({username: "", password: ""}));
-  }
+    this.props
+      .login(this.state.username, this.state.password)
+      .then(this.setState({ username: "", password: "" }));
+  };
 
   updateInput = e => {
     this.setState({ [e.target.name]: e.target.value });
@@ -35,15 +40,39 @@ class Login extends Component {
 
   render() {
     return (
-    
-      <div>  
-        <div className= "login">
-          <input type="text" name="username" onChange={this.updateInput} />
-          <input type="password" name="password" onChange={this.updateInput} />
-         <button onClick={this.submit}> Login</button> <Link  to="/userpage" >Next...</Link> 
-        </div>
-        <div>Don't have an account? Register now!</div>
-        <button onClick={() => this.register()}>Register</button>
+      <div>
+        <NavBar />
+
+        <div className="login">
+          <div>
+            Log in and start keeping track of your favorite songs!
+          </div>
+          <br />
+          <input
+            id="usernameLogin"
+            type="text"
+            name="username"
+            placeholder=" Username..."
+            onChange={this.updateInput}
+          />
+          <br />
+          <input
+            id="passwordLogin"
+            type="password"
+            name="password"
+            placeholder=" Password..."
+            onChange={this.updateInput}
+          />
+          
+              </div>
+              <button id="loginButton" onClick={this.submit}>
+          <Link to="/userpage">
+          Login </Link> 
+            </button>
+        <div className="register">Don't have an account? Register now!</div>
+        <button className="registerButton" onClick={() => this.register()}>
+          Register
+        </button>
       </div>
     );
   }
@@ -53,5 +82,5 @@ const mapStateToProps = state => state;
 
 export default connect(
   mapStateToProps,
-  { login }
+  { login, getUser }
 )(Login);

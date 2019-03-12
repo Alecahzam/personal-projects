@@ -1,0 +1,135 @@
+
+
+.navBar {
+  background-image: linear-gradient(rgb(51, 160, 160),purple);
+  float: left;
+  padding-top: 6px;
+padding-bottom: 4px;
+  text-decoration: none;
+  width: 100%;
+  list-style: none;
+  position: fixed;
+  z-index:2;
+}
+
+.navList {
+  display: flex;
+  justify-content: space-around;
+  font-size: 140%;
+}
+
+.Links {
+  color: rgb(0, 234, 255);
+  text-decoration: none;
+}
+
+.logo {
+  height: 30px;
+  width: 40px;
+  margin-left: 4vw;
+}
+.imageSpace {
+  height: 20px
+}
+.Links:hover {
+  color: rgb(151, 221, 221);
+}
+
+.songList {
+  background: lavender;
+  border:1px solid transparent;
+  display:flex;
+  justify-content: center;
+  margin-left: 10%;
+  margin-right: 20%;
+  /* margin-top: 60px */
+  height: 160px
+}
+
+.sideInfo {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  float: right;
+  padding-left: 20px;
+  margin-left:10%;
+  font-size: 160%;
+background-color: lavender;
+width: 600px;
+border-left: 2px solid purple;
+border-radius: 15px;
+text-align: left;
+font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif
+}
+.imgURL {
+  height: 150px;
+  width: 220px;
+   /* align-content: center; */
+float: left;
+  /* margin-left: 34vw; */
+  padding-top: 10px;
+  padding-bottom: 15px;
+  border-radius: 20px
+}
+#arti {
+  border-bottom: purple
+}
+#geny {
+  border-bottom: purple
+}
+.songTitle{
+  font-size: 200%;
+  margin-left: 10%;
+  padding-bottom: 20px;
+  padding-top: 10px;
+  border-top: 2px solid purple;
+  border-radius: 5x;
+  text-align: left;
+  text-shadow: 1px 1px gray
+}
+
+#player {
+  float: bottom
+}
+
+/* .artist {
+  padding-bottom: 30px
+}
+
+.favButton {
+  margin-top: 30px
+} */
+
+ 
+.whole {
+  float:bottom;
+  border: 2px solid rgb(83, 28, 76);
+  border-radius: 5px;
+  margin-left: 10%;
+  margin-right: 20%;
+  padding: 15px;
+  background-color:lavender;
+  margin-bottom:10px;
+  width: 60%;
+}
+
+#favButton {
+  margin-top: 15px;
+  margin-left: 10px;
+  width: 50px;
+  height: 40px;
+  border-radius: 10px;
+  font-size: 220%;
+  cursor: pointer;
+}
+
+/* .positioned {
+  position: fixed;
+  z-index: 10;
+  top:60vh;
+  left: 85vw
+} */ 
+
+.homeBG{
+  background-image: linear-gradient(purple,cyan,purple,cyan);
+}

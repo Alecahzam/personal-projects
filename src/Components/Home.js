@@ -1,20 +1,22 @@
 import React, { Component } from "react";
 import axios from "axios";
-import "./Home.css";
+import "./CSS/Home.css";
 // import { Link } from "react-router-dom";
 import Song from "./SubComponents/Song";
 // import Upload from "./Upload";
 import NavBar from "./SubComponents/NavBar";
 import { connect } from "react-redux";
 import { getUser } from "./ducks/reducer";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.min.css";
 
 class Home extends Component {
   constructor() {
     super();
     this.state = {
-      songList: [],
+      songList: []
+    };
   }
-}
 
   componentDidMount() {
     this.getSongs();
@@ -32,14 +34,23 @@ class Home extends Component {
     });
   }
 
+  handleToast() {
+    toast.success("Added to favorites.");
+    console.log("test");
+  }
+
   addToFavorites(songid) {
     axios
       .post("/api/favorites", {
         username: this.props.user.username,
         songid: songid
       })
-      .then(response => {
-        console.log(response);
+      .then(() => {
+        this.handleToast();
+      })
+      .catch(err => {
+        console.log(err);
+        toast.success("Added to favorites.");
       });
   }
 
@@ -47,64 +58,47 @@ class Home extends Component {
     console.log(this.props);
     const songDisplay = this.state.songList.map((e, i) => {
       return this.props.user.username ? (
-        <div key={i} className="songList">
-          <div>
-            <img
-              src={`${e.image}`}
-              alt="songImages"
-              className="imgURL"
-              
-            />
+        <div className="whole" key={i}>
+          <div className="songList">
+            <div>
+              <img src={`${e.image}`} alt="songImages" className="imgURL" />
+            </div>
+            <p id="favButton"
+              onClick={() => this.addToFavorites(e.songid)}>&#9734;</p>
+            
             <div className="sideInfo">
-              <div className="artist">Artist: {e.artist}</div>
-              <div>Genre: {e.genre}</div>
-              <button
-                className="favButton"
-                onClick={() => this.addToFavorites(e.songid)}
-              >
-                fav
-              </button>
+              <div id="arti"> Artist: {e.artist}</div>
+              <div id="geny">Genre: {e.genre}</div>
             </div>
           </div>
-          {e.title}
-          <Song file={e.url} />
-          <div>
-            <br/>
-          </div>
+          <div className="songTitle">{e.title}</div>
+          <Song id="player" file={e.url} />
         </div>
       ) : (
-        <div key={i} className="songList">
-          <div>
-            <img
-              src={`${e.image}`}
-              alt="songImages"
-              className="imgURL"
-            />
+        <div className="whole" key={i}>
+          <div className="songList">
+            <div className="imageSpace">
+              <img src={`${e.image}`} alt="songImages" className="imgURL" />
+            </div>
             <div className="sideInfo">
-              <div className="artist">Artist: {e.artist}</div>
+              <div> Artist: {e.artist}</div>
               <div>Genre: {e.genre}</div>
             </div>
           </div>
-          {e.title}
-          <Song file={e.url} />
-          <div>
-            <br />
-          </div>
+          <div className="songTitle">{e.title}</div>
+          <Song id="player" file={e.url} />
         </div>
-      )
+      );
     });
     return (
-      <div>
+      <div className="homeBG">
         <div className="background">
           <NavBar />
-          
-          {/* <Upload/> */}
         </div>
-        <div>Home</div>
-        <div className= "positioned">
-        </div>
-        <div className="whole">{songDisplay}</div>
-        {/* <Form getSongs={this.getSongs} /> */}
+        <br />
+        <br />
+        <br />
+        <div className="songDis">{songDisplay}</div>
         <footer />
       </div>
     );

@@ -44,5 +44,5 @@ module.exports = {
     } else {
       res.status(401).json({ error: "Please log in first." });
     }
-  },
+  }
 };

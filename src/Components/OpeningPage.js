@@ -1,23 +1,22 @@
 import React, { Component } from "react";
 import NavBar from "./SubComponents/NavBar";
-import "./OpeningPage.css";
+import "./CSS/OpeningPage.css";
 import Bg from "./SubComponents/Bg";
+import { Link } from "react-router-dom"
 
 export default class Opener extends Component {
-  enterHandler() {}
+ 
   render() {
     return (
       <div className="body">
-        {/* <NavBar/> */}
-        <div className="image">
-          <Bg id= "bg"/>
-        </div>
-        <div className="titleAndButton">
-          <h4 className="title">OrchesChat</h4>
-          <button id="connect" onClick={this.enterHandler}>
-            Get Connected
-          </button>
-        </div>
+      <img src="ylia.jpg" alt="ylia"/>
+      <div >
+         <h4 className="title">OrchesChat</h4>
+          <Link  to="/home" >
+          <button id="enterButton">
+            Get Connected</button>
+          </Link>
+      </div>
       </div>
     );
   }

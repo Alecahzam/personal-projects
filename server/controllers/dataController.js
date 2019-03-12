@@ -39,7 +39,7 @@ module.exports = {
     console.log(req.body);
     dbInstance
       .addToFavorites([req.body.username, req.body.songid])
-      .then(() => res.status(200))
+      .then((response) => res.status(200).send(response))
       .catch(error => {
         res.status(500).send({ errorMessage: "Couldn't add to favorites." });
         console.log(error);
@@ -63,5 +63,16 @@ module.exports = {
     }).catch(error => {
       res.status(500).send({ errorMessage: "Error removing favorite."})
     })
-  }
-};
+  },
+ getBio: (req, res) => {
+  const dbInstance = req.app.get('db')
+  dbInstance.getBio().then(response => { 
+    res.status(200).send(response)
+  }).catch(error => {
+    res.status(500).send({
+      errorMessage: "Error retrieving favorites."
+    }) 
+    console.log(error)
+  })
+}
+}

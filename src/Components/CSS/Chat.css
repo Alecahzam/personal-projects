@@ -1,0 +1,82 @@
+.messages {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  height: 79.5vh;
+  width: 20vw;
+  font-size: 95%;
+  white-space: nowrap;
+  background-color: white;
+  text-align: left
+}
+
+.messages div:nth-child(odd) {
+  background: rgb(186, 250, 247);
+}
+
+.hideDown {
+  width: 20vw;
+  color: cyan;
+  border: 2px solid black;
+  font-size: 130%;
+  background-color: purple;
+}
+.showButton {
+  width: 20vw;
+  color: cyan;
+  border: 2px solid black;
+  font-size: 130%;
+  background-color: purple;
+}
+.card {
+  height: 30vh;
+  width: 20vw;
+}
+.container {
+  height: 40vh;
+  width: 20vw;
+}
+.positioned {
+  height: 50vh;
+  width: 40vw;
+}
+
+.card-body {
+  border: 1px solid black;
+}
+
+.card-title {
+  color: cyan;
+  border: 2px solid black;
+  font-size: 130%;
+  background-color: purple;
+}
+
+.card-footer {
+  border: 1px solid black;
+  background-color: purple;
+}
+.form-control {
+  height: 120%;
+  width: 90%;
+  border: none;
+  border-left: solid 2px purple;
+  border-bottom: solid 2px purple;
+  background-color: lavender;
+  
+}
+
+.btnn {
+  width: 60px;
+  border-radius: 5px;
+  background: transparent;
+  border: 1px solid purple;
+border: cyan;
+  /* display: flex; */
+  justify-content: center;
+  text-align: center;
+  text-decoration: none;
+  padding: 5px;
+  background-color: lavender;
+  color: rgb(109, 43, 139);
+}

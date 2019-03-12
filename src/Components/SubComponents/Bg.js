@@ -1,5 +1,5 @@
 import React from "react"
-import "./Bg.css"
+import "../CSS/Bg.css"
 
 const titleImage = () => {return(
 <div>

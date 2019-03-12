@@ -1,0 +1,40 @@
+
+
+h4 {
+    color: cyan;
+    font-size: 5em;
+    font-family: Verdana, Geneva, sans-serif
+}
+
+
+#enterButton {
+background-color: rgba(170, 66, 147, 0.9);
+padding: 15px;
+border: 1px solid rgb(0, 0, 0);
+border-radius: 10px;
+position: absolute;
+top: 50%;
+left: 50%;
+transform: translate(-50%, 80%);
+font-family: Verdana, Geneva, sans-serif;
+font-size: 1em;
+color: rgb(106, 225, 236);
+text-shadow: 1px 1px black;
+box-shadow: 2px black
+}
+
+.title {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -90%);
+  padding: 25px
+}
+
+.body {
+  position: relative;
+  text-align: center;
+  color: white;
+  text-shadow: 3px 3px black;
+  z-index: 10000;
+}

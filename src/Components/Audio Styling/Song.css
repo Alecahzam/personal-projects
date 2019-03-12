@@ -3,11 +3,18 @@
 }
 
 .react-h5-audio-player {
-  width: 40%;
+  width: 90%;
   display: flex;
   float: center;
   justify-content: center;
   padding: 4px;
+  border-radius: 15px;
+  z-index: 0;
+  size: 80%;
+}
+
+.flex {
+  border-radius: 15px
 }
 
 .toggle-play-wrapper .toggle-play-button {
@@ -20,7 +27,7 @@
   height: 18px;
   border-left: 7px solid white;
   position: relative;
-  z-index: 1;
+  z-index: 0;
   left: 9px;
   background-color: white;
   box-shadow: purple 7px 0px 0px 0px inset !important;
